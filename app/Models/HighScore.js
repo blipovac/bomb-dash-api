@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class HighScore extends Model {
     user() {
-        return this.belongsTo('App/Models/user')
+        return this.belongsTo('App/Models/User')
     }
 }
 
