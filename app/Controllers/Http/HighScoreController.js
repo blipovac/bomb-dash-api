@@ -28,6 +28,7 @@ class HighScoreController {
     async show({ response }) {
         const high_scores = await HighScore
             .query()
+            .with('user')
             .orderBy('score', 'desc')
             .limit(25)
             .fetch()
@@ -38,6 +39,7 @@ class HighScoreController {
     async showMine({ user, response }) {
         const high_scores = await HighScore
         .query()
+        .with('user')
         .where({ user_id: user.id })
         .orderBy('score', 'desc')
         .limit(25)
